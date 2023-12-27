@@ -1,3 +1,4 @@
+// Interface para pegar os atributos de cada unidade smartfit
 export interface Location {
     id: number;
     title: string;
@@ -10,6 +11,7 @@ export interface Location {
     schedules: Schedule[];
 }
 
+// Dias e horairos da semana
 interface Schedule {
     weekdays: string;
     hour: string;
