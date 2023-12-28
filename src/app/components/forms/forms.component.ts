@@ -1,5 +1,5 @@
 import { GetUnitsService } from './../../services/get-units.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Location } from '../../types/location.interface';
 import { FilterUnitsService } from '../../services/filter-units.service';
@@ -10,6 +10,8 @@ import { FilterUnitsService } from '../../services/filter-units.service';
   styleUrl: './forms.component.scss'
 })
 export class FormsComponent implements OnInit {
+  @Output() submitEvent = new EventEmitter();
+
   public results: Location[] = [];
   public filteredResults: Location[] = [];
   public formGroup!: FormGroup;
@@ -38,6 +40,8 @@ export class FormsComponent implements OnInit {
     let { showClosed, hour } = this.formGroup.value
     this.filteredResults = this.filterUnitsService.filter(this.results, showClosed, hour);
     this.unitsService.setFilteredUnits(this.filteredResults);
+
+    this.submitEvent.emit();
   }
 
   public onClean(): void {
