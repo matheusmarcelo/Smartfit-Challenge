@@ -11,6 +11,7 @@ import { CardListComponent } from './components/card-list/card-list.component';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from './components/card/card.component';
 import { LegendsComponent } from './components/legends/legends.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LegendsComponent } from './components/legends/legends.component';
     FormsComponent,
     CardListComponent,
     CardComponent,
-    LegendsComponent
+    LegendsComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
